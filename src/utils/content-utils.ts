@@ -27,7 +27,9 @@ async function getRawSortedPosts(options: { includeUnlisted?: boolean } = {}) {
 	return sorted;
 }
 
-export async function getSortedPosts(options: { includeUnlisted?: boolean } = {}) {
+export async function getSortedPosts(
+	options: { includeUnlisted?: boolean } = {},
+) {
 	const sorted = await getRawSortedPosts(options);
 	const navPosts = options.includeUnlisted
 		? sorted.filter((post) => isListedPost(post))
@@ -128,5 +130,3 @@ export async function getCategoryList(): Promise<Category[]> {
 	}
 	return ret;
 }
-
-
